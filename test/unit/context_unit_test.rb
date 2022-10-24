@@ -451,12 +451,9 @@ class ContextUnitTest < Minitest::Test
   end
 
   def test_use_empty_instead_of_any_in_interrupt_handling_to_avoid_lots_of_unnecessary_object_allocations
-    # NOTE: this will result in a frozen string error, no idea why, not worth investigating
-    # mock_any = Spy.on_instance_method(Array, :any?)
     mock_empty = Spy.on_instance_method(Array, :empty?)
     @context.interrupt?
 
-    # refute mock_any.has_been_called?
     assert mock_empty.has_been_called?
   end
 

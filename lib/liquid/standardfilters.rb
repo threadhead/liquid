@@ -33,7 +33,6 @@ module Liquid
     end
 
     def escape(input)
-      # CGI.escapeHTML(input).untaint unless input.nil?
       CGI.escapeHTML(input) unless input.nil?
     end
     alias_method :h, :escape
